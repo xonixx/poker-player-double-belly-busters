@@ -50,13 +50,6 @@ dependencies {
     compile group: 'log4j', name: 'log4j', version: '1.2.17'
     compile group: 'org.mockito', name: 'mockito-all', version: '1.8.4'
 
-    if (new File('/tmp/is_locahlost').exists() || new File("C:/is_localhost").exists()) {
-        compile 'org.eclipse.jetty:jetty-server:8.1.1.v20120215'
-        compile 'org.eclipse.jetty:jetty-webapp:8.1.1.v20120215'
-        compile 'org.eclipse.jetty:jetty-jsp:8.1.1.v20120215'
-        compile 'org.eclipse.jetty:jetty-plus:8.1.1.v20120215'
-    }
-
     def tomcatVersion = '7.0.11'
 
     providedCompile "org.apache.tomcat:tomcat-servlet-api:${tomcatVersion}"

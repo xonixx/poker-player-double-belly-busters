@@ -1,5 +1,3 @@
-package com.doublebellybuster;
-
 import org.eclipse.jetty.server.Connector;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.HandlerList;
@@ -12,6 +10,7 @@ import java.io.IOException;
 
 public class Launch {
     static String[] modules = {
+            ""
     };
 
     public static void main(String[] args) throws Exception {
@@ -32,7 +31,9 @@ public class Launch {
         WebAppClassLoader rootClassLoader = new WebAppClassLoader(root);
 
         for (String moduleName : modules) {
-            rootClassLoader.addClassPath(join(join(rootFolder, moduleName), "build/classes"));
+            rootClassLoader.addClassPath(join(join(rootFolder, moduleName), "build/classes/main"));
+            rootClassLoader.addClassPath(join(join(rootFolder, moduleName), "build/classes/production/poker-player-double-belly-busters"));
+            rootClassLoader.addClassPath(join(join(rootFolder, moduleName), "build/classes/artifacts/poker-player-double-belly-busters"));
         }
 
         addAllDependentJars(rootClassLoader, rootFolder);
