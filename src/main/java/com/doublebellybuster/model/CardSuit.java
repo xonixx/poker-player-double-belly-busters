@@ -7,7 +7,7 @@ public enum CardSuit {
     spades("♠"),
     hearts("♥"),
     clubs("♣"),
-    diams("♦");
+    diamonds("♦");
 
     public final String symbol;
 
