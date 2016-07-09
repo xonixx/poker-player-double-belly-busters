@@ -1,10 +1,10 @@
 package org.leanpoker.player;
 
+import com.doublebellybuster.Constants;
 import com.doublebellybuster.Util;
 import com.doublebellybuster.model.GameState;
 import com.doublebellybuster.strategy.IStrategy;
 import com.doublebellybuster.strategy.PushAllInStrategy;
-import com.doublebellybuster.strategy.ShortStackPushStrategy;
 import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
@@ -22,16 +22,18 @@ public class PlayerServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        logger.info("doGet MegaLog!!!!");
         resp.getWriter().print("Java player is running");
     }
 
-    private static IStrategy strategy = new ShortStackPushStrategy();
+    private static IStrategy strategy = new PushAllInStrategy();
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");
         String gameState = req.getParameter("game_state");
         String reply;
+        System.out.println("Just log test!!!!");
         try {
             if ("check".equals(action)) {
                 logger.info("Received check request");
@@ -41,7 +43,7 @@ public class PlayerServlet extends HttpServlet {
             } else if ("showdown".equals(action)) {
                 reply = "OK";
             } else if ("version".equals(action)) {
-                reply = "DoubleBellyBusters-0.0.2";
+                reply = Constants.VERSION;
             } else {
                 reply = "provide action";
             }
