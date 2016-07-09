@@ -21,6 +21,11 @@ public class AdvancedShortStackStrategy implements IStrategy {
         if (affective_stack < 5 || gameState.getCombination() == PokerCombination.Monster) {
             strategy = new PushAllInStrategy();
         }
+
+        if (hole_cards.isPocketPairs()) {
+            strategy = new CatchSetStrategy();
+        }
+
         if (affective_stack > 12){
             return 0;
         }
