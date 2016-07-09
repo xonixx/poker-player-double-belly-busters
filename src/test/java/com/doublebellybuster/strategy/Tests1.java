@@ -56,10 +56,22 @@ public class Tests1 {
 
     @Test
     public void test3() {
-        System.out.println(
+        Assert.assertEquals(PokerCombination.TopDouble,
                 determine(
-                        Arrays.asList("6s","6s"),
-                        Arrays.asList("5h")));
+                        Arrays.asList("5s","6s"),
+                        Arrays.asList("5h", "2c", "3s")));
+        Assert.assertEquals(null,
+                determine(
+                        Arrays.asList("5s","6s"),
+                        Arrays.asList("Qh", "2c", "3s")));
+        Assert.assertEquals(PokerCombination.OverDouble,
+                determine(
+                        Arrays.asList("9s","9s"),
+                        Arrays.asList("5h", "2c", "3s")));
+        Assert.assertEquals(null,
+                determine(
+                        Arrays.asList("9s","9s"),
+                        Arrays.asList("5h", "Kc", "3s")));
     }
 
 }
