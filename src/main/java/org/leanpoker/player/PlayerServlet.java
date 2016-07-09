@@ -33,8 +33,9 @@ public class PlayerServlet extends HttpServlet {
         String action = req.getParameter("action");
         String gameState = req.getParameter("game_state");
         String reply;
-        GameState gameStateObj = "".equals(gameState) || gameState==null ? null : Util.parse(gameState, GameState.class);
-        logger.info("GS: "+gameStateObj);
+        GameState gameStateObj = "".equals(gameState) || gameState == null ? null : Util.parse(gameState, GameState.class);
+        logger.info("GS: " + gameStateObj);
+        resp.setContentType("text/plain");
         try {
             if ("check".equals(action)) {
                 logger.info("Received check request");
@@ -50,6 +51,7 @@ public class PlayerServlet extends HttpServlet {
             }
 
             ServletOutputStream outputStream = resp.getOutputStream();
+            System.out.println("REPLY: " + reply);
             outputStream.println(reply);
             outputStream.flush();
         } catch (Exception e) {
