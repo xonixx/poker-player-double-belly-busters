@@ -24,7 +24,7 @@ public class PlayerServlet extends HttpServlet {
         resp.getWriter().print("Java player is running");
     }
 
-    private static IStrategy strategy = new ShortStackPushStrategy();
+    private static IStrategy strategy = new AdvancedShortStackStrategy();
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
