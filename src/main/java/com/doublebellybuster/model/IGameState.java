@@ -8,4 +8,5 @@ import com.doublebellybuster.model.IPlayer;
 public interface IGameState {
     int getLastBet();
     IPlayer getMyPlayer();
+    int getAffectiveStack();
 }
