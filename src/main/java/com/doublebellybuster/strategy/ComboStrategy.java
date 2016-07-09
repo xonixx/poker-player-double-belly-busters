@@ -5,19 +5,18 @@ import com.doublebellybuster.model.IGameState;
 /**
  * Created by sviridenich on 7/9/16.
  */
-
-public class PreflopRaiseContbetStrategy implements IStrategy {
+public class ComboStrategy implements IStrategy{
     @Override
     public int betRequest(IGameState gameState) {
         IStrategy strategy = new CheckFoldStrategy();
 
-        int last_bet = gameState.getLastAffectiveBet();
-
-        if (last_bet == 1) {
-            strategy = new MiniRaiseStrategy();
+        if (gameState.getAffectiveStack() > 50) {
+            strategy = new PreflopRaiseContbetStrategy();
+        }
+        if (gameState.getAffectiveStack() <= 12) {
+            strategy = new AdvancedShortStackStrategy();
         }
 
         return strategy.betRequest(gameState);
-
     }
 }

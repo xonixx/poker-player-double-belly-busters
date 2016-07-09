@@ -5,6 +5,7 @@ package com.doublebellybuster.model;
  */
 public interface IGameState {
     int getLastBet();
+    int getLastAffectiveBet();
     IPlayer getMyPlayer();
     int getAffectiveStack();
     Position getPosition();

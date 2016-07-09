@@ -127,6 +127,11 @@ public class GameState implements IGameState {
     }
 
     @Override
+    public int getLastAffectiveBet() {
+        return 2 * this.getLastBet() / this.small_blind;
+    }
+
+    @Override
     public IPlayer getMyPlayer() {
         for(int i = 0; i < this.players.size(); i++) {
             Player p = this.players.get(i);
