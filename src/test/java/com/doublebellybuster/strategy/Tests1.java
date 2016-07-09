@@ -72,6 +72,10 @@ public class Tests1 {
                 determine(
                         Arrays.asList("9s","9s"),
                         Arrays.asList("5h", "Kc", "3s")));
+        Assert.assertEquals(PokerCombination.TwoDoubles,
+                determine(
+                        Arrays.asList("10s","Js"),
+                        Arrays.asList("5h", "Jc", "3s", "10s")));
     }
 
 }
