@@ -2,6 +2,7 @@ package com.doublebellybuster.strategy;
 
 import com.doublebellybuster.model.IGameState;
 import com.doublebellybuster.model.IHoleCards;
+import com.doublebellybuster.model.analytics.PokerCombination;
 
 /**
  * Created by sviridenich on 7/9/16.
@@ -17,7 +18,7 @@ public class AdvancedShortStackStrategy implements IStrategy {
         IStrategy strategy = new CheckFoldStrategy();
         int affective_stack = gameState.getAffectiveStack();
 
-        if (affective_stack < 5) {
+        if (affective_stack < 5 || gameState.getCombination() == PokerCombination.Monster) {
             strategy = new PushAllInStrategy();
         }
         if (affective_stack > 12){
