@@ -2,7 +2,7 @@ package com.doublebellybuster.model;
 
 import java.util.List;
 
-public class Player {
+public class Player implements IPlayer{
     private int id;
     private String name;
     private PlayerStatus status;
@@ -50,5 +50,15 @@ public class Player {
                 ", bet=" + bet +
                 ", hole_cards=" + hole_cards +
                 '}';
+    }
+
+    @Override
+    public int getAbsoluteStack() {
+        return this.stack;
+    }
+
+    @Override
+    public List<Card> getHoleCards() {
+        return this.hole_cards;
     }
 }

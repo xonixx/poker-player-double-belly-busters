@@ -1,4 +1,6 @@
-package com.doublebellybuster.strategy;
+package com.doublebellybuster.model;
+
+import com.doublebellybuster.model.IPlayer;
 
 /**
  * Created by sviridenich on 7/7/16.

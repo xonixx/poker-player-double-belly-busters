@@ -1,5 +1,6 @@
 package com.doublebellybuster.strategy;
 
+import com.doublebellybuster.model.IGameState;
 import junit.framework.TestCase;
 import org.mockito.Mockito;
 
