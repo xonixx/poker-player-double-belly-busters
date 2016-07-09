@@ -13,7 +13,7 @@ public class PreflopRaiseContbetStrategy implements IStrategy {
 
         int last_bet = gameState.getLastAffectiveBet();
 
-        if (last_bet == 1) {
+        if (last_bet == 2) {
             strategy = new MiniRaiseStrategy();
         }
 
