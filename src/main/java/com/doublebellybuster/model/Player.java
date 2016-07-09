@@ -58,7 +58,7 @@ public class Player implements IPlayer{
     }
 
     @Override
-    public List<Card> getHoleCards() {
-        return this.hole_cards;
+    public IHoleCards getHoleCards() {
+        return new HoleCards(this.hole_cards);
     }
 }

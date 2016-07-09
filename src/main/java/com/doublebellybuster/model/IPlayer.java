@@ -8,5 +8,5 @@ import java.util.List;
 public interface IPlayer {
     int getAbsoluteStack();
 
-    List<Card> getHoleCards();
+    IHoleCards getHoleCards();
 }
