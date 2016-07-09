@@ -4,6 +4,7 @@ import com.doublebellybuster.PokerLogic;
 import com.doublebellybuster.model.Card;
 import com.doublebellybuster.model.CardSuit;
 import com.doublebellybuster.model.analytics.PokerCombination;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -51,6 +52,30 @@ public class Tests1 {
             commonCards.add(new Card(c));
         }
         return PokerLogic.determineCombination(mineCards, commonCards);
+    }
+
+    @Test
+    public void test3() {
+        Assert.assertEquals(PokerCombination.TopDouble,
+                determine(
+                        Arrays.asList("5s","6s"),
+                        Arrays.asList("5h", "2c", "3s")));
+        Assert.assertEquals(null,
+                determine(
+                        Arrays.asList("5s","6s"),
+                        Arrays.asList("Qh", "2c", "3s")));
+        Assert.assertEquals(PokerCombination.OverDouble,
+                determine(
+                        Arrays.asList("9s","9s"),
+                        Arrays.asList("5h", "2c", "3s")));
+        Assert.assertEquals(null,
+                determine(
+                        Arrays.asList("9s","9s"),
+                        Arrays.asList("5h", "Kc", "3s")));
+        Assert.assertEquals(PokerCombination.TwoDoubles,
+                determine(
+                        Arrays.asList("10s","Js"),
+                        Arrays.asList("5h", "Jc", "3s", "10s")));
     }
 
 }

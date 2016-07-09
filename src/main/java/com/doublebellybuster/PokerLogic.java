@@ -10,10 +10,6 @@ public class PokerLogic {
         Card topCommon = top(commonCards);
         Card my0 = myCards.get(0);
         Card my1 = myCards.get(1);
-        if (topCommon.isSameRank(my0) || topCommon.isSameRank(my1))
-            return PokerCombination.TopDouble;
-        if (my0.isSameRank(my1) && my0.compareTo(topCommon) > 0)
-            return PokerCombination.OverDouble;
 
         int pairs = 0;
         for (Card my : myCards) {
@@ -25,6 +21,11 @@ public class PokerLogic {
 
         if (pairs == 2)
             return PokerCombination.TwoDoubles;
+
+        if (topCommon.isSameRank(my0) || topCommon.isSameRank(my1))
+            return PokerCombination.TopDouble;
+        if (my0.isSameRank(my1) && my0.compareTo(topCommon) > 0)
+            return PokerCombination.OverDouble;
 
         List<Card> allCards = new ArrayList<>();
         allCards.addAll(myCards);

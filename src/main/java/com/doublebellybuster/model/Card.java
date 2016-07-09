@@ -41,10 +41,10 @@ public class Card implements Comparable<Card> {
         return rank + suit;
     }
 
-    public static final String POS = "1|2|3|4|5|6|7|8|9|10|J|Q|K|A";
+    public static final String POS = "1|2|3|4|5|6|7|8|9|10|j|q|k|a";
 
     public int getValue() {
-        return POS.indexOf(rank);
+        return POS.indexOf(rank.toLowerCase());
     }
 
     @Override
