@@ -1,5 +1,6 @@
 package org.leanpoker.player;
 
+import com.doublebellybuster.Constants;
 import com.doublebellybuster.Util;
 import com.doublebellybuster.model.GameState;
 import com.doublebellybuster.strategy.IStrategy;
@@ -42,7 +43,7 @@ public class PlayerServlet extends HttpServlet {
             } else if ("showdown".equals(action)) {
                 reply = "OK";
             } else if ("version".equals(action)) {
-                reply = "DoubleBellyBusters-0.0.2";
+                reply = Constants.VERSION;
             } else {
                 reply = "provide action";
             }

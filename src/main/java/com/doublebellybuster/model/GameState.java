@@ -1,5 +1,7 @@
 package com.doublebellybuster.model;
 
+import com.doublebellybuster.Constants;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -18,8 +20,6 @@ public class GameState implements IGameState {
 
     private List<Player> players;
     private List<Card> community_cards;
-
-    private static String OUR_NAME = "Double Belly Busters";
 
     public String getTournament_id() {
         return tournament_id;
@@ -101,7 +101,7 @@ public class GameState implements IGameState {
     public IPlayer getMyPlayer() {
         for(int i = 0; i < this.players.size(); i++) {
             Player p = this.players.get(i);
-            if (Objects.equals(p.getName(), OUR_NAME)){
+            if (Objects.equals(p.getVersion(), Constants.VERSION)){
                 return p;
             }
         }

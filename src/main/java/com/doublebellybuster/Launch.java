@@ -12,15 +12,10 @@ import java.io.IOException;
 
 public class Launch {
     static String[] modules = {
-//            "zlo_search", "zlo_web",
-//            "xmlfp", "xonix-utils",
-
-//            "slf4j" // included from pom!
     };
 
     public static void main(String[] args) throws Exception {
         String rootFolder = ".";
-//        String zloWeb = join(rootFolder, "zlo_web");
 
         Server server = new Server();
 
@@ -29,14 +24,9 @@ public class Launch {
         server.addConnector(connector);
 
         WebAppContext root = new WebAppContext(join(rootFolder, "src/main/webapp"), "/");
-//        WebAppContext root = new WebAppContext(join(zloWeb, "src/main/webapp"), "/lol");
-
-//        EnvConfiguration envConfiguration = new EnvConfiguration();
-//        envConfiguration.setJettyEnvXml(Launch.class.getResource("jetty-env.xml"));
         root.setConfigurations(new Configuration[]{
                 new WebInfConfiguration(),// default
                 new WebXmlConfiguration(),// default
-//                envConfiguration
         });
 
         WebAppClassLoader rootClassLoader = new WebAppClassLoader(root);
