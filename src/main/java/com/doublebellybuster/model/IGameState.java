@@ -13,5 +13,5 @@ public interface IGameState {
     int getAffectiveStack();
     Position getPosition();
 
-    PokerCombination getCombination(List<Card> mine, List<Card> common);
+    PokerCombination getCombination();
 }

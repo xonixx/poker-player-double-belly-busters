@@ -161,7 +161,7 @@ public class GameState implements IGameState {
     }
 
     @Override
-    public PokerCombination getCombination(List<Card> mine, List<Card> common) {
+    public PokerCombination getCombination() {
         return PokerLogic.determineCombination(getMyPlayer().getHole_cards(), getCommunity_cards());
     }
 }
