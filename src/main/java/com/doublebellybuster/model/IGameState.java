@@ -9,6 +9,7 @@ import java.util.List;
  */
 public interface IGameState {
     int getLastBet();
+    int getLastAffectiveBet();
     IPlayer getMyPlayer();
     int getAffectiveStack();
     Position getPosition();
