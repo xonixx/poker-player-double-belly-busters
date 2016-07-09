@@ -1,6 +1,7 @@
 apply plugin: 'java'
 apply plugin: 'war'
-apply plugin: 'tomcat'
+//apply plugin: 'tomcat'
+apply plugin: 'spring-boot'
 
 sourceCompatibility = 1.7
 version = '1.0'
