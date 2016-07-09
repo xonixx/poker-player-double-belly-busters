@@ -21,6 +21,7 @@ public class PlayerServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        logger.info("doGet MegaLog!!!!");
         resp.getWriter().print("Java player is running");
     }
 
