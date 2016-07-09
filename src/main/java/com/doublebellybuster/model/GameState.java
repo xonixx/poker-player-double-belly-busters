@@ -125,4 +125,18 @@ public class GameState implements IGameState {
         int bb = 2 * this.small_blind;
         return  abs_stack / bb + 1;
     }
+
+    @Override
+    public Position getPosition() {
+        int selfPosition = this.in_action;
+
+        if (selfPosition >= 0 && selfPosition < 2)
+            return Position.BLIND;
+        else if (selfPosition >= 2 && selfPosition < 4)
+            return Position.EARLY;
+        else if (selfPosition >= 4 && selfPosition < 6)
+            return Position.MIDDLE;
+        else
+            return Position.LATE;
+    }
 }
