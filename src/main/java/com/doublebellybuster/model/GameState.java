@@ -73,6 +73,24 @@ public class GameState implements IGameState {
         return community_cards;
     }
 
+    public Street getStreet() {
+        if (community_cards == null) {
+            return Street.PREFLOP;
+        }
+        Street street = Street.PREFLOP;
+        int size = community_cards.size();
+        if (size == 0) {
+            return Street.PREFLOP;
+        } else if (size <= 3) {
+            return Street.FLOP;
+        } else if (size == 4) {
+            return Street.TURN;
+        } else if (size == 5) {
+            return Street.RIVER;
+        }
+        return street;
+    }
+
     @Override
     public String toString() {
         return "GameState{" +
