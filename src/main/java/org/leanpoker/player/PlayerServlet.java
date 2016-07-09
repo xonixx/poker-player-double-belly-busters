@@ -34,7 +34,7 @@ public class PlayerServlet extends HttpServlet {
         String gameState = req.getParameter("game_state");
         String reply;
         GameState gameStateObj = "".equals(gameState) || gameState == null ? null : Util.parse(gameState, GameState.class);
-        logger.info("GS: " + gameStateObj);
+        System.out.println("REQ action="+action+", GS=" + gameStateObj);
         resp.setContentType("text/plain");
         try {
             if ("check".equals(action)) {
