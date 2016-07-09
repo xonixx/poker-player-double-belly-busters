@@ -56,6 +56,7 @@ public class PlayerServlet extends HttpServlet {
             outputStream.println(reply);
             outputStream.flush();
         } catch (Exception e) {
+            System.out.println("ERROR: " + e.getMessage());
             logger.error("Unexpected error [action=" + action + "]:", e);
         }
     }
