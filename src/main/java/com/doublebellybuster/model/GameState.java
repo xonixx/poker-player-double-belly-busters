@@ -1,6 +1,7 @@
 package com.doublebellybuster.model;
 
 import com.doublebellybuster.Constants;
+import com.doublebellybuster.PokerLogic;
 import com.doublebellybuster.model.analytics.PokerCombination;
 
 import java.util.List;
@@ -133,7 +134,7 @@ public class GameState implements IGameState {
     }
 
     @Override
-    public IPlayer getMyPlayer() {
+    public Player getMyPlayer() {
         for(int i = 0; i < this.players.size(); i++) {
             Player p = this.players.get(i);
             if (Objects.equals(p.getName(), Constants.NAME)){
@@ -166,6 +167,6 @@ public class GameState implements IGameState {
 
     @Override
     public PokerCombination getCombination() {
-        return null;
+        return PokerLogic.determineCombination(getMyPlayer().getHole_cards(), getCommunity_cards());
     }
 }
