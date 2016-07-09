@@ -101,7 +101,7 @@ public class GameState implements IGameState {
     public IPlayer getMyPlayer() {
         for(int i = 0; i < this.players.size(); i++) {
             Player p = this.players.get(i);
-            if (Objects.equals(p.getVersion(), Constants.VERSION)){
+            if (Objects.equals(p.getName(), Constants.NAME)){
                 return p;
             }
         }
