@@ -4,8 +4,7 @@ import com.doublebellybuster.Util;
 import com.doublebellybuster.model.GameState;
 import com.doublebellybuster.strategy.IStrategy;
 import com.doublebellybuster.strategy.PushAllInStrategy;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
@@ -18,7 +17,7 @@ import java.io.IOException;
 @WebServlet("/")
 public class PlayerServlet extends HttpServlet {
 
-    private static final Logger logger = LoggerFactory.getLogger(PlayerServlet.class);
+    private static final Logger logger = Logger.getLogger(PlayerServlet.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
