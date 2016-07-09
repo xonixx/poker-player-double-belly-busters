@@ -32,21 +32,25 @@ public class PlayerServlet extends HttpServlet {
         String action = req.getParameter("action");
         String gameState = req.getParameter("game_state");
         String reply;
-        if ("check".equals(action)) {
-            logger.info("Received check request");
-            reply = "OK";
-        } else if ("bet_request".equals(action)) {
-            reply = Integer.toString(strategy.betRequest(Util.parse(gameState, GameState.class)));
-        } else if ("showdown".equals(action)) {
-            reply = "OK";
-        } else if ("version".equals(action)) {
-            reply = "DoubleBellyBusters-0.0.2";
-        } else {
-            reply = "provide action";
-        }
+        try {
+            if ("check".equals(action)) {
+                logger.info("Received check request");
+                reply = "OK";
+            } else if ("bet_request".equals(action)) {
+                reply = Integer.toString(strategy.betRequest(Util.parse(gameState, GameState.class)));
+            } else if ("showdown".equals(action)) {
+                reply = "OK";
+            } else if ("version".equals(action)) {
+                reply = "DoubleBellyBusters-0.0.2";
+            } else {
+                reply = "provide action";
+            }
 
-        ServletOutputStream outputStream = resp.getOutputStream();
-        outputStream.println(reply);
-        outputStream.flush();
+            ServletOutputStream outputStream = resp.getOutputStream();
+            outputStream.println(reply);
+            outputStream.flush();
+        } catch (Exception e) {
+            logger.error("Unexpected error [action=" + action + "]:", e);
+        }
     }
 }
