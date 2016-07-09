@@ -25,7 +25,8 @@ public class PlayerServlet extends HttpServlet {
         resp.getWriter().print("Java player is running");
     }
 
-    private static IStrategy strategy= new PushAllInStrategy();
+    private static IStrategy strategy = new PushAllInStrategy();
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");
@@ -39,7 +40,7 @@ public class PlayerServlet extends HttpServlet {
         } else if ("showdown".equals(action)) {
             reply = "OK";
         } else if ("version".equals(action)) {
-            reply = "DoubleBellyBusters-0.0.1";
+            reply = "DoubleBellyBusters-0.0.2";
         } else {
             reply = "provide action";
         }
