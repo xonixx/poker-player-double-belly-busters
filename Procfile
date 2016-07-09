@@ -1,1 +1,1 @@
-web: ./gradlew tomcatRun
+web: java -Dserver.port=$PORT -jar  target/doublebellybuster-0.0.1-SNAPSHOT.jar
