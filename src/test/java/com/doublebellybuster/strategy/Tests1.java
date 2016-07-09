@@ -4,6 +4,7 @@ import com.doublebellybuster.PokerLogic;
 import com.doublebellybuster.model.Card;
 import com.doublebellybuster.model.CardSuit;
 import com.doublebellybuster.model.analytics.PokerCombination;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -51,6 +52,14 @@ public class Tests1 {
             commonCards.add(new Card(c));
         }
         return PokerLogic.determineCombination(mineCards, commonCards);
+    }
+
+    @Test
+    public void test3() {
+        System.out.println(
+                determine(
+                        Arrays.asList("6s","6s"),
+                        Arrays.asList("5h")));
     }
 
 }
