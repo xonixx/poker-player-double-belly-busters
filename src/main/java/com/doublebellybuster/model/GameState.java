@@ -94,7 +94,18 @@ public class GameState implements IGameState {
 
     @Override
     public int getLastBet() {
-        return 0;
+        int bet = 0;
+        if (players != null && players.size() > 0) {
+            for (int i = 0; i < players.size(); i++) {
+                Player player = players.get(i);
+                if (Constants.NAME.equals(player.getName())) {
+                    return bet;
+                } else if (player.getBet() >= 0) {
+                    bet = player.getBet();
+                }
+            }
+        }
+        return bet;
     }
 
     @Override
