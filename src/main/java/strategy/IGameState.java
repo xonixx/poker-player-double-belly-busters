@@ -5,4 +5,5 @@ package strategy;
  */
 public interface IGameState {
     int getLastBet();
+    IPlayer getMyPlayer();
 }
