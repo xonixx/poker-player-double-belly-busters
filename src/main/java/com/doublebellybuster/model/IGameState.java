@@ -13,6 +13,6 @@ public interface IGameState {
     IPlayer getMyPlayer();
     int getAffectiveStack();
     Position getPosition();
-
+    Street getStreet();
     PokerCombination getCombination();
 }
