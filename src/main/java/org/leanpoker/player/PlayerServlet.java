@@ -4,7 +4,6 @@ import com.doublebellybuster.Util;
 import com.doublebellybuster.model.GameState;
 import com.doublebellybuster.strategy.IStrategy;
 import com.doublebellybuster.strategy.PushAllInStrategy;
-import com.doublebellybuster.strategy.ShortStackPushStrategy;
 import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
@@ -25,16 +24,16 @@ public class PlayerServlet extends HttpServlet {
         resp.getWriter().print("Java player is running");
     }
 
-    private static IStrategy strategy = new ShortStackPushStrategy();
+    private static IStrategy strategy = new PushAllInStrategy();
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");
         String gameState = req.getParameter("game_state");
         String reply;
+        System.out.println("Just log test!!!!");
         try {
             if ("check".equals(action)) {
-                System.out.println("Just log test!!!!");
                 logger.info("Received check request");
                 reply = "OK";
             } else if ("bet_request".equals(action)) {
