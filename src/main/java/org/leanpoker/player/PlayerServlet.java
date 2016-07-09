@@ -24,7 +24,6 @@ public class PlayerServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        logger.info("doGet MegaLog!!!!");
         resp.getWriter().print("Java player is running");
     }
 
@@ -35,13 +34,15 @@ public class PlayerServlet extends HttpServlet {
         String action = req.getParameter("action");
         String gameState = req.getParameter("game_state");
         String reply;
-        System.out.println("Just log test!!!!");
+        GameState gameStateObj = "".equals(gameState) || gameState == null ? null : Util.parse(gameState, GameState.class);
+        System.out.println("REQ action="+action+", GS=" + gameStateObj);
+        resp.setContentType("text/plain");
         try {
             if ("check".equals(action)) {
                 logger.info("Received check request");
                 reply = "OK";
             } else if ("bet_request".equals(action)) {
-                reply = Integer.toString(strategy.betRequest(Util.parse(gameState, GameState.class)));
+                reply = Integer.toString(strategy.betRequest(gameStateObj));
             } else if ("showdown".equals(action)) {
                 reply = "OK";
             } else if ("version".equals(action)) {
@@ -51,6 +52,7 @@ public class PlayerServlet extends HttpServlet {
             }
 
             ServletOutputStream outputStream = resp.getOutputStream();
+            System.out.println("REPLY: action=" + action + ", res=" + reply);
             outputStream.println(reply);
             outputStream.flush();
         } catch (Exception e) {
