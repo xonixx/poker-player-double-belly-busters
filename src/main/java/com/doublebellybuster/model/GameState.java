@@ -107,4 +107,11 @@ public class GameState implements IGameState {
         }
         return null;
     }
+
+    @Override
+    public int getAffectiveStack() {
+        int abs_stack = this.getMyPlayer().getAbsoluteStack();
+        int bb = 2 * this.small_blind;
+        return  abs_stack / bb + 1;
+    }
 }

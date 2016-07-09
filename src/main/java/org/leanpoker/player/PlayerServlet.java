@@ -32,6 +32,7 @@ public class PlayerServlet extends HttpServlet {
         String action = req.getParameter("action");
         String gameState = req.getParameter("game_state");
         String reply;
+        System.out.println("Just log test!!!!");
         try {
             if ("check".equals(action)) {
                 logger.info("Received check request");
