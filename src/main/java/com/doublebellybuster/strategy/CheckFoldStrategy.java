@@ -1,4 +1,4 @@
-package strategy;
+package com.doublebellybuster.strategy;
 
 /**
  * Created by sviridenich on 7/7/16.

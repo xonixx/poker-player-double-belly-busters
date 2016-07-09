@@ -1,4 +1,4 @@
-package strategy;
+package com.doublebellybuster.strategy;
 
 import junit.framework.TestCase;
 import org.mockito.Mockito;
