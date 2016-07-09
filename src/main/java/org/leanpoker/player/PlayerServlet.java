@@ -2,6 +2,9 @@ package org.leanpoker.player;
 
 import com.doublebellybuster.Util;
 import com.doublebellybuster.model.GameState;
+import com.doublebellybuster.model.IGameState;
+import com.doublebellybuster.strategy.IStrategy;
+import com.doublebellybuster.strategy.PushAllInStrategy;
 import com.google.gson.JsonParser;
 
 import javax.servlet.ServletException;
@@ -20,6 +23,7 @@ public class PlayerServlet extends HttpServlet {
         resp.getWriter().print("Java player is running");
     }
 
+    private static IStrategy strategy= new PushAllInStrategy();
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");
@@ -28,13 +32,13 @@ public class PlayerServlet extends HttpServlet {
         if ("check".equals(action)) {
             reply = "OK";
         } else if ("bet_request".equals(action)) {
-            reply = Util.parse(gameState, GameState.class).toString(); // TODO
+            reply = Integer.toString(strategy.betRequest(Util.parse(gameState, GameState.class)));
         } else if ("showdown".equals(action)) {
-            reply = Util.parse(gameState, GameState.class).toString(); // TODO
+            reply = "OK";
         } else if ("version".equals(action)) {
             reply = "DoubleBellyBusters-0.0.1";
         } else {
-            reply =  "provide action";
+            reply = "provide action";
         }
 
         ServletOutputStream outputStream = resp.getOutputStream();
