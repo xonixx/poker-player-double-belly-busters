@@ -50,7 +50,7 @@ public class PlayerServlet extends HttpServlet {
 
             ServletOutputStream outputStream = resp.getOutputStream();
             System.out.println("REPLY: action=" + action + ", res=" + reply);
-            outputStream.println(reply);
+            outputStream.print(reply);
             outputStream.flush();
         } catch (Exception e) {
             System.out.println("ERROR: " + e.getMessage());
