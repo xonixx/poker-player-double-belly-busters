@@ -33,6 +33,7 @@ public class PlayerServlet extends HttpServlet {
         String reply;
         try {
             if ("check".equals(action)) {
+                System.out.println("Just log test!!!!");
                 logger.info("Received check request");
                 reply = "OK";
             } else if ("bet_request".equals(action)) {
