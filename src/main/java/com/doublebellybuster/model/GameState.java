@@ -1,6 +1,7 @@
 package com.doublebellybuster.model;
 
 import com.doublebellybuster.Constants;
+import com.doublebellybuster.model.analytics.PokerCombination;
 
 import java.util.List;
 import java.util.Objects;
@@ -161,5 +162,10 @@ public class GameState implements IGameState {
             return Position.MIDDLE;
         else
             return Position.LATE;
+    }
+
+    @Override
+    public PokerCombination getCombination() {
+        return null;
     }
 }
