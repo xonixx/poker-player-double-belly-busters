@@ -18,7 +18,7 @@ public class AdvancedShortStackStrategy implements IStrategy {
         IStrategy strategy = new CheckFoldStrategy();
         int affective_stack = gameState.getAffectiveStack();
 
-        if (affective_stack < 5 || gameState.getCombination() == PokerCombination.Monster) {
+        if (affective_stack < 5 /*|| gameState.getCombination() == PokerCombination.Monster*/) {
             strategy = new PushAllInStrategy();
         }
 
