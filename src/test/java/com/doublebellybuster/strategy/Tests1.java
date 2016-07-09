@@ -76,6 +76,14 @@ public class Tests1 {
                 determine(
                         Arrays.asList("10s","Js"),
                         Arrays.asList("5h", "Jc", "3s", "10s")));
+        Assert.assertEquals(PokerCombination.ForceFlashDro2,
+                determine(
+                        Arrays.asList("3s","5s"),
+                        Arrays.asList("5h", "Js", "4c", "10s")));
+        Assert.assertEquals(null,
+                determine(
+                        Arrays.asList("3s","5s"),
+                        Arrays.asList("5h", "Js", "4c", "10d")));
     }
 
 }
