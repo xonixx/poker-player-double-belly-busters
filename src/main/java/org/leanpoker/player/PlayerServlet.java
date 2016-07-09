@@ -3,6 +3,7 @@ package org.leanpoker.player;
 import com.doublebellybuster.Constants;
 import com.doublebellybuster.Util;
 import com.doublebellybuster.model.GameState;
+import com.doublebellybuster.strategy.ConstantStrategy;
 import com.doublebellybuster.strategy.IStrategy;
 import com.doublebellybuster.strategy.PushAllInStrategy;
 import com.doublebellybuster.strategy.ShortStackPushStrategy;
@@ -27,7 +28,7 @@ public class PlayerServlet extends HttpServlet {
         resp.getWriter().print("Java player is running");
     }
 
-    private static IStrategy strategy = new ShortStackPushStrategy();
+    private static IStrategy strategy = new ConstantStrategy();
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
