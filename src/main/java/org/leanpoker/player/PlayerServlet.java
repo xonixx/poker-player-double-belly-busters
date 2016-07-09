@@ -5,6 +5,7 @@ import com.doublebellybuster.Util;
 import com.doublebellybuster.model.GameState;
 import com.doublebellybuster.strategy.IStrategy;
 import com.doublebellybuster.strategy.PushAllInStrategy;
+import com.doublebellybuster.strategy.ShortStackPushStrategy;
 import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
@@ -25,7 +26,7 @@ public class PlayerServlet extends HttpServlet {
         resp.getWriter().print("Java player is running");
     }
 
-    private static IStrategy strategy = new PushAllInStrategy();
+    private static IStrategy strategy = new ShortStackPushStrategy();
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
